@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ICST University - Innovative Education for Tomorrow's Leaders</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <style>
+        :root {
+            --primary: #4e54c8;
+            --secondary: #8f94fb;
+            --accent: #f9a826;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+            --info: #17a2b8;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: var(--dark);
+        }
+        
+        h1, h2, h3, h4, h5 {
+            font-family: 'Roboto Slab', serif;
+            font-weight: 600;
+        }
+        
+        .navbar {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .navbar-brand img {
+            height: 50px;
+        }
+        
+        .hero-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: url('S01-480x554.jpg');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 0;
+        }
+        
+        @media (max-width: 991px) {
+            .hero-section {
+                min-height: 70vh;
+                padding: 40px 0;
+            }
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            border-color: var(--primary);
+        }
+        
+        .btn-outline-light:hover {
+            color: var(--primary);
+        }
+        
+        .feature-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 100%;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .program-card {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .program-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .program-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--accent);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .testimonial-card {
+            border-left: 5px solid var(--primary);
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .news-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .news-card:hover {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        
+        .news-date {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: var(--primary);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        footer {
+            background: #181818; /* Replace gradient with solid dark color */
+            color: white;
+        }
+        
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+        
+        .social-icon:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-3px);
+        }
+        
+        .footer-link {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+            padding-left: 5px;
+        }
+        /* Add this style to darken the text color under headings and paragraphs */
+        /* Make headings and main text darker for better contrast */
+        h1, h2, h3, h4, h5, h6,
+        .card-title,
+        .fw-bold,
+        .lead,
+        .card-text,
+        p,
+        .navbar-nav .nav-link,
+        .footer-link {
+            color: #181818 !important;
+        }
+        /* Optionally, make footer text white for contrast */
+        footer,
+        footer p,
+        footer .footer-link {
+            color: #fff !important;
+        }
+        @keyframes gradientMove {
+          0% {background-position:0% 50%}
+          50% {background-position:100% 50%}
+          100% {background-position:0% 50%}
+        }
+        .animate-gradient {
+          animation: gradientMove 4s ease-in-out infinite;
+        }
+        .animate-link {
+          transition: color 0.3s, text-shadow 0.3s;
+        }
+        .animate-link:hover {
+          color: var(--accent) !important;
+          text-shadow: 0 0 8px var(--secondary), 0 0 16px var(--primary);
+        }
+    </style>
+</head>
+<body style="background: linear-gradient(rgba(78,84,200,0.1), rgba(143,148,251,0.1)); background-size: cover; background-attachment: fixed; background-position: center;">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="https://icst.edu.lk/wp-content/uploads/2023/11/ICST-Logo-Final@4x-1.png" alt="ICST University Logo" style="height:50px;">
+                <span class="ms-2 fw-bold" style="font-size:1.25rem;">ICST University Park</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#programs">Programs</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#admissions">Admissions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+                <a href="#" class="btn btn-outline-light ms-lg-3">Apply Now</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section text-center">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 mx-auto">
+                    <h1 class="display-4 fw-bold mb-4">Welcome to ICST</h1>
+                    <p class="lead mb-5">ICST University offers world-class education with cutting-edge programs designed to prepare students for the challenges of tomorrow.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="#" class="btn btn-primary btn-lg px-4">Explore Programs</a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-4">Virtual Tour</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold">Why Choose ICST?</h2>
+                    <p class="text-muted">Discover what makes us different</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-primary bg-opacity-10 text-primary rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
+                                <i class="fas fa-graduation-cap fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Industry-Relevant Programs</h5>
+                            <p class="card-text text-muted">Our curriculum is designed with input from industry leaders to ensure relevance.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-success bg-opacity-10 text-success rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
+                                <i class="fas fa-chalkboard-teacher fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Expert Faculty</h5>
+                            <p class="card-text text-muted">Learn from experienced professionals and academic experts.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-info bg-opacity-10 text-info rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
+                                <i class="fas fa-laptop-code fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Modern Facilities</h5>
+                            <p class="card-text text-muted">State-of-the-art labs and learning spaces for hands-on experience.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-3">
+                    <div class="feature-card card">
+                        <div class="card-body text-center p-4">
+                            <div class="icon-box bg-accent bg-opacity-10 text-accent rounded-circle p-3 mb-4 mx-auto" style="width: 70px; height: 70px;">
+                                <i class="fas fa-globe-asia fa-2x"></i>
+                            </div>
+                            <h5 class="card-title">Global Opportunities</h5>
+                            <p class="card-text text-muted">International partnerships and exchange programs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Programs Section -->
+    <section class="py-5 bg-light">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold">Our Programs</h2>
+                    <p class="text-muted">Explore our diverse range of academic offerings</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="program-card card">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80" class="card-img-top" alt="Business Program">
+                        <span class="program-badge">HD</span>
+                        <div class="card-body">
+                            <h5 class="card-title">ACCA</h5>
+                            <p class="card-text text-muted">Develop leadership skills and business acumen for the modern corporate world.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="program-card card">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Computer Science Program">
+                        <span class="program-badge">HD IT</span>
+                        <div class="card-body">
+                            <h5 class="card-title">INFORMATION TECHNOLOGY</h5>
+                            <p class="card-text text-muted">Master cutting-edge technologies and software development methodologies.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="program-card card">
+                        <img src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" class="card-img-top" alt="Engineering Program">
+                        <span class="program-badge">HD QS</span>
+                        <div class="card-body">
+                            <h5 class="card-title">QUANTITY SURVEYOR </h5>
+                            <p class="card-text text-muted">Practical engineering solutions for real-world challenges.</p>
+                            <a href="#" class="btn btn-sm btn-primary">Learn More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-12 text-center">
+                    <a href="#" class="btn btn-outline-primary">View All Programs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-5 text-white" style="background: linear-gradient(135deg, var(--primary), var(--secondary);">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-6 col-md-3">
+                    <h3 class="display-4 fw-bold">25+</h3>
+                    <p class="mb-0">Academic Programs</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3 class="display-4 fw-bold">5,000+</h3>
+                    <p class="mb-0">Students</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3 class="display-4 fw-bold">200+</h3>
+                    <p class="mb-0">Faculty Members</p>
+                </div>
+                <div class="col-6 col-md-3">
+                    <h3 class="display-4 fw-bold">95%</h3>
+                    <p class="mb-0">Graduate Employment</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row mb-5">
+                <div class="col-12 text-center">
+                    <h2 class="fw-bold">What Our Students Say</h2>
+                    <p class="text-muted">Hear from our community</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card card bg-light">
+                        <div class="card-body p-4">
+                            <div class="d-flex mb-3">
+                                <img src="data:image/jpeg;base64,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" class="rounded-circle me-3" width="60" height="60" alt="Student">
+                                <div>
+                                    <h6 class="mb-0">JM SAMLI</h6>
+                                    <small class="text-muted">Computer Science, 2022</small>
+                                </div>
+                            </div>
+                            <p class="card-text">"The practical approach to learning at ICST gave me the confidence to start my own tech company right after graduation."</p>
+                            <div class="text-accent">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card card bg-light">
+                        <div class="card-body p-4">
+                            <div class="d-flex mb-3">
+                                <img src="c:\Users\User\Desktop\Nasa\photos\IMG-20250124-WA0035.jpg" class="rounded-circle me-3" width="60" height="60" alt="Student">
+                                <div>
+                                    <h6 class="mb-0">Nashath</h6>
+                                    <small class="text-muted">Business Administration, 2021</small>
+                                </div>
+                            </div>
+                            <p class="card-text">"The industry connections I made through ICST's internship program led directly to my current management position."</p>
+                            <div class="text-accent">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="testimonial-card card bg-light">
+                        <div class="card-body p-4">
+                            <div class="d-flex mb-3">
+                                <img src="c:\Users\User\Desktop\Nasa\photos\IMG-20250401-WA0061.jpg" class="rounded-circle me-3" width="60" height="60" alt="Student">
+                                <div>
+                                    <h6 class="mb-0">Afnan</h6>
+                                    <small class="text-muted">Engineering Technology, 2023</small>
+                                </div>
+                            </div>
+                            <p class="card-text">"The hands-on projects and modern lab facilities made all the difference in my learning experience."</p>
+                            <div class="text-accent">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="py-5 text-white" style="background: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80'); background-size: cover; background-position: center;">
+        <div class="container">
+            <div class="row justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold mb-4">Ready to Start Your Journey?</h2>
+                    <p class="lead mb-5">Applications for the 2023/2024 academic year are now open. Don't miss your chance to join our vibrant community.</p>
+                    <div class="d-flex gap-3 justify-content-center">
+                        <a href="#" class="btn btn-light btn-lg px-4">Apply Now</a>
+                        <a href="#" class="btn btn-outline-light btn-lg px-4">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <img src="https://via.placeholder.com/150x50?text=ICST+Logo" alt="ICST University Logo" class="mb-3">
+                    <p class="text-white-50" style="color: #101116 !important;">
+    Innovative College of Science and Technology is a leading higher education institution committed to excellence in teaching, research, and community engagement.
+</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-4">
+                    <h5 class="text-gradient mb-4 animate-gradient" style="background: linear-gradient(270deg, var(--accent), var(--secondary), var(--primary), var(--accent)); background-size: 600% 600%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-fill-color: transparent; font-weight:900; letter-spacing:1px;">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="footer-link fw-bold animate-link"><i class="fas fa-home me-2"></i>Home</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link fw-bold animate-link"><i class="fas fa-info-circle me-2"></i>About Us</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link fw-bold animate-link"><i class="fas fa-book-open me-2"></i>Programs</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link fw-bold animate-link"><i class="fas fa-user-plus me-2"></i>Admissions</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link fw-bold animate-link"><i class="fas fa-flask me-2"></i>Research</a></li>
+                        <li class="mb-2"><a href="#" class="footer-link fw-bold animate-link"><i class="fas fa-envelope-open-text me-2"></i>Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-gradient mb-4 animate-gradient" style="background: linear-gradient(270deg, var(--accent), var(--secondary), var(--primary), var(--accent)); background-size: 600% 600%; -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; text-fill-color: transparent; font-weight:900; letter-spacing:1px;">Contact Info</h5>
+                    <ul class="list-unstyled" style="color: #fff; font-weight:700;">
+                        <li class="mb-2 animate-link"><i class="fas fa-map-marker-alt me-2 text-accent"></i> 123 Education Ave, Colombo, Sri Lanka</li>
+                        <li class="mb-2 animate-link"><i class="fas fa-phone-alt me-2 text-accent"></i> +94 11 234 5678</li>
+                        <li class="mb-2 animate-link"><i class="fas fa-envelope me-2 text-accent"></i> info@icst.edu.lk</li>
+                        <li class="mb-2 animate-link"><i class="fas fa-clock me-2 text-accent"></i> Mon-Fri: 8:30AM - 4:30PM</li>
+                    </ul>
+                </div>
+                <div class="col-lg-3 col-md-4">
+                    <h5 class="text-white mb-4">Newsletter</h5>
+                    <p style="color: #4f08ad;">Subscribe to our newsletter for the latest updates and news.</p>
+                    <form class="mt-4">
+                        <div class="input-group mb-3">
+                            <input type="email" class="form-control" placeholder="Your Email">
+                            <button class="btn btn-accent text-white" type="button">Subscribe</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <hr class="my-4 bg-white-10">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 text-white-50">&copy; 2023 ICST University. All rights reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="footer-link me-3">Privacy Policy</a>
+                    <a href="#" class="footer-link">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
